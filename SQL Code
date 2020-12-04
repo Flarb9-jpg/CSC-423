@@ -8,7 +8,7 @@ CREATE TABLE Course (
 	EndMonth varchar(255),
 	WeekDay varchar(255),
 	TimeOfDay varchar(255),
-    FOREIGN KEY (CourseName) REFERENCES CourseOffering(CourseName)
+    	FOREIGN KEY (CourseName) REFERENCES CourseOffering(CourseName)
 );
 
 CREATE TABLE Student (
@@ -26,13 +26,14 @@ CREATE TABLE Tutor (
 );
 
 CREATE TABLE Address (
-	TheirName varchar(255), 
+	StudentName varchar(255),
+    	TutorName varchar(255),
 	Street varchar(255),
 	City varchar(255),
 	ZipCode int,
 	TelephoneNumber int,
-	FOREIGN KEY (TheirName) REFERENCES Student(StudentName),
-	FOREIGN KEY (TheirName) REFERENCES Tutor(TutorName)
+	FOREIGN KEY (StudentName) REFERENCES Student(StudentName),
+	FOREIGN KEY (TutorName) REFERENCES Tutor(TutorName)
 );
 
 CREATE TABLE TutorAmount (
@@ -119,3 +120,15 @@ INSERT INTO Enrolled (CourseName, StudentName, TutorName)
 VALUES('Java Programming', 'Ross Pierson', 'Sarah Strong');
 INSERT INTO Enrolled (CourseName, StudentName, TutorName)
 VALUES('Finance 127', 'John Appleseed', 'Arthur Johnson');
+
+
+INSERT INTO Address (StudentName, Street, City, ZipCode, TelephoneNumber)
+VALUES('Ross Pierson', '120 Harvard Drive', 'Daytona Beach', 32176, 5559872345);
+INSERT INTO Address (StudentName, Street, City, ZipCode, TelephoneNumber)
+VALUES('John Smith', '111 Kent Lane', 'Springfield', 12345, 5552349087);
+INSERT INTO Address (StudentName, Street, City, ZipCode, TelephoneNumber)
+VALUES('Hanna Miller', '41 Charcoal Road', 'Westport', 11245, 5552147204);
+INSERT INTO Address (TutorName, Street, City, ZipCode, TelephoneNumber)
+VALUES('Louis Coldwater', '321 Sunny Blvd', 'Miami', 65321, 5551092837);
+INSERT INTO Address (TutorName, Street, City, ZipCode, TelephoneNumber)
+VALUES('Sarah Strong', '5 College Street', 'Kansas City', 54321, 5558675309);
